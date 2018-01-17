@@ -1,0 +1,33 @@
+{
+  "name": "nti-web-help",
+  "version": "0.0.0",
+  "description": "Help Components",
+  "main": "./lib/index-cjs.js",
+  "scripts": {
+    "test": "nti-cmp-scripts test",
+    "start": "nti-cmp-scripts start",
+    "prepack": "nti-cmp-scripts build",
+    "build": "nti-cmp-scripts build",
+    "clean": "nti-cmp-scripts clean",
+    "check": "nti-cmp-scripts check",
+    "release": "nti-cmp-scripts release",
+    "install-snapshots": "nti-cmp-scripts install-snapshots",
+    "fix": "nti-cmp-scripts fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NextThought/nti.web.component.help.git"
+  },
+  "author": "nextthought",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/NextThought/nti.web.component.help/issues"
+  },
+  "homepage": "https://github.com/NextThought/nti.web.component.help#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "nti-cmp-scripts": "^1.0.78",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
