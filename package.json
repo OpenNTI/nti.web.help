@@ -24,7 +24,14 @@
     "url": "https://github.com/NextThought/nti.web.component.help/issues"
   },
   "homepage": "https://github.com/NextThought/nti.web.component.help#readme",
-  "dependencies": {},
+  "dependencies": {
+    "nti-lib-interfaces": "^1.72.0",
+    "nti-style-common": "^1.4.0",
+    "nti-web-client": "^1.2.0",
+    "nti-web-commons": "^0.23.0",
+    "nti-web-routing": "^0.4.1",
+    "prop-types": "^15.6.0"
+  },
   "devDependencies": {
     "nti-cmp-scripts": "^1.0.78",
     "react": "^16.2.0",
