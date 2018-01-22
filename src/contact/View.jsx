@@ -19,7 +19,8 @@ const errorMessage = {
 export default class Contact extends React.Component {
 	static propTypes = {
 		showContact: PropTypes.bool,
-		onCancel: PropTypes.func
+		onCancel: PropTypes.func,
+		onDismiss: PropTypes.func
 	}
 
 	static show () {
@@ -70,7 +71,12 @@ export default class Contact extends React.Component {
 		try {
 			await service.post(link, body);
 
-			this.setState({loading: false, error:false, message:'', success: true});
+			this.setState({loading: false, error:false, message:''});
+
+			const {onDismiss} = this.props;
+			if (onDismiss) {
+				onDismiss();
+			}
 		}
 		catch (reason) {
 			this.setState({loading: false, error:false});
@@ -112,6 +118,13 @@ export default class Contact extends React.Component {
 		this.sendFeed(body);
 	}
 
+	cancel = () =>{
+		const {onDismiss} = this.props;
+		if (onDismiss) {
+			onDismiss();
+		}
+	}
+
 	render () {
 		return (
 			<div className="contact-us">
@@ -142,7 +155,7 @@ export default class Contact extends React.Component {
 				</div>
 				<div className="footer">
 					<button className="submit-btn" onClick={this.submit} disabled={this.state.loading}>Submit</button>
-					<button className="cancel-btn" onClick={this.props.onCancel}>Cancel</button>
+					<button className="cancel-btn" onClick={this.cancel}>Cancel</button>
 				</div>
 				{this.state.loading && (
 					<div>
