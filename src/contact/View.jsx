@@ -27,6 +27,7 @@ export default class Contact extends React.Component {
 		return new Promise((fulfill, reject) => {
 			Prompt.modal(
 				<Contact
+					onSelect={fulfill}
 					onCancel={reject}
 				/>,
 				'contact-viewer-container'
@@ -71,12 +72,7 @@ export default class Contact extends React.Component {
 		try {
 			await service.post(link, body);
 
-			this.setState({loading: false, error:false, message:''});
-
-			const {onDismiss} = this.props;
-			if (onDismiss) {
-				onDismiss();
-			}
+			this.setState({loading: false, error:false, message:'', success: true});
 		}
 		catch (reason) {
 			this.setState({loading: false, error:false});
@@ -144,7 +140,7 @@ export default class Contact extends React.Component {
 					)}
 					{this.state.success && (
 						<div className="success-message">
-							<span>Success!</span>
+							<span>Message has been sent!</span>
 						</div>
 					)}
 					<div className="content">
