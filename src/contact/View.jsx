@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Loading, Prompt} from 'nti-web-commons';
+import {Loading, Prompt, Input, Button} from 'nti-web-commons';
 import {getService} from 'nti-web-client';
 import {getLink} from 'nti-lib-interfaces';
 // import {getHistory} from 'nti-web-routing';
@@ -50,12 +50,12 @@ export default class Contact extends React.Component {
 		};
 	}
 
-	changeEmail =(e) =>{
-		this.setState ({email: e.target.value});
+	changeEmail =(value) =>{
+		this.setState ({email: value});
 	}
 
-	changeFeedback =(e) =>{
-		this.setState ({message: e.target.value});
+	changeFeedback =(value) =>{
+		this.setState ({message: value});
 	}
 
 	contactUsBodyForMessage (data) {
@@ -144,14 +144,23 @@ export default class Contact extends React.Component {
 						</div>
 					)}
 					<div className="content">
-						<input className="email" placeholder="Email" value={this.state.email} onChange={this.changeEmail}/>
-						<textarea className="message" placeholder="Your message..." rows="7" value={this.state.message}
-							onChange={this.changeFeedback}/>
+						<Input.Text
+							className="email"
+							placeholder="Email"
+							value={this.state.email}
+							onChange={this.changeEmail}
+						/>
+						<Input.TextArea
+							className="message"
+							placeholder="Your message..."
+							value={this.state.message}
+							onChange={this.changeFeedback}
+						/>
 					</div>
 				</div>
 				<div className="footer">
-					<button className="submit-btn" onClick={this.submit} disabled={this.state.loading}>Submit</button>
-					<button className="cancel-btn" onClick={this.cancel}>Cancel</button>
+					<Button className="submit-btn" onClick={this.submit} disabled={this.state.loading}>Submit</Button>
+					<Button className="cancel-btn" onClick={this.cancel}>Cancel</Button>
 				</div>
 				{this.state.loading && (
 					<div>
