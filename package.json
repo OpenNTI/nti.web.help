@@ -3,6 +3,7 @@
   "version": "0.1.0-alpha",
   "description": "Help Components",
   "main": "./lib/index-cjs.js",
+  "module": "./lib/index.js",
   "scripts": {
     "test": "nti-cmp-scripts test",
     "start": "nti-cmp-scripts start",
