@@ -144,7 +144,7 @@ export default class Contact extends React.Component {
 						</div>
 					)}
 					<div className="content">
-						<input className="email" placeholder="Email" value={this.state.email} onChange={this.changeEmail}/>
+						<input className="email" placeholder="Email" value={this.state.email || ''} onChange={this.changeEmail}/>
 						<textarea className="message" placeholder="Your message..." rows="7" value={this.state.message}
 							onChange={this.changeFeedback}/>
 					</div>
