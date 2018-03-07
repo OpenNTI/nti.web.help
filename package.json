@@ -1,6 +1,6 @@
 {
   "name": "nti-web-help",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha",
   "description": "Help Components",
   "main": "./lib/index-cjs.js",
   "module": "./lib/index.js",
