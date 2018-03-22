@@ -126,11 +126,11 @@ export default class Contact extends React.Component {
 			<div className="contact-us">
 				<div className="body">
 					<p className="title">Contact Us...</p>
-					<p className="info">Please use the form below to share your comments, report an issue,
-						or suggest new features. If you need help or have a question about the features,
-						please take a look at the
-						<a className="link" target="blank" href="http://help.nextthought.com"> NextThought Help Site</a>
-						. We may already have content there to help you.
+					<p className="info">
+						Please use the form below to share your comments, report an issue, or suggest new features. If
+						you need help or have a question about the features, please take a look at the
+						<a className="link" target="blank" href="http://help.nextthought.com">NextThought Help Site</a>.
+						We may already have content there to help you.
 					</p>
 					{this.state.error && (
 						<div className="error-message">
