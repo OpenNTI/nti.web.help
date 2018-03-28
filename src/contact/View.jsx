@@ -92,7 +92,7 @@ export default class Contact extends React.Component {
 		return true;
 	}
 
-	componentDidMount() {
+	componentDidMount () {
 		this.setState({
 			loading: false,
 			error: false,
