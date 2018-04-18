@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loading, Prompt } from 'nti-web-commons';
-import { getService } from 'nti-web-client';
-import { getLink } from 'nti-lib-interfaces';
-// import {getHistory} from 'nti-web-routing';
+import { Loading, Prompt } from '@nti/web-commons';
+import { getService } from '@nti/web-client';
+import { getLink } from '@nti/lib-interfaces';
+// import {getHistory} from '@nti/web-routing';
 
 const errorMessage = {
 	message: {
