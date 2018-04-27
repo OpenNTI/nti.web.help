@@ -34,7 +34,7 @@
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
-    "@nti/cmp-scripts": "^1.16.0",
+    "@nti/cmp-scripts": "^1.17.16",
     "@nti/style-common": "^1.3.0",
     "autoprefixer": "^7.1.6",
     "enzyme": "^3.0.0",
