@@ -19,6 +19,9 @@
     "type": "git",
     "url": "git+https://github.com/NextThought/nti.web.component.help.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.nextthought.com"
+  },
   "author": "nextthought",
   "license": "UNLICENSED",
   "bugs": {
