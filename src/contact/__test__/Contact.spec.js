@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, fireEvent, waitFor } from '@testing-library/react';
+import { wait } from '@nti/lib-commons';
 
 import Contact from '../View';
 
@@ -41,46 +42,45 @@ describe('Contact', () => {
 	beforeEach(onBefore);
 	afterEach(onAfter);
 
-	const getCmp = () => mount(
-		<Contact/>
-	);
-
 	test('Test contact with empty email',  async () => {
-		const cmp = getCmp();
-		cmp.setState({email: '', message: ''});
-		cmp.find('.submit-btn').simulate('click');
-		await new Promise(resolve => {
-			setTimeout(() => {
-				resolve();
-			}, 300);
-		});
+		let cmp;
+		const {container:root} = render( <Contact ref={x => cmp = x }/> );
 
-		expect(cmp.state().errorMessage).toEqual(errorMessage.email);
+		cmp.setState({email: '', message: ''});
+
+		await wait();
+
+		fireEvent.click(root.querySelector('.submit-btn'));
+
+		await waitFor(() =>
+			expect(cmp.state.errorMessage).toEqual(errorMessage.email));
 	});
 
 	test('Test contact with empty message',  async () => {
-		const cmp = getCmp();
-		cmp.setState({email: 'test@email.com', message: ''});
-		cmp.find('.submit-btn').simulate('click');
-		await new Promise(resolve => {
-			setTimeout(() => {
-				resolve();
-			}, 300);
-		});
+		let cmp;
+		const {container:root} = render( <Contact ref={x => cmp = x }/> );
 
-		expect(cmp.state().errorMessage).toEqual(errorMessage.message);
+		cmp.setState({email: 'test@email.com', message: ''});
+
+		await wait();
+
+		fireEvent.click(root.querySelector('.submit-btn'));
+
+		await waitFor(() =>
+			expect(cmp.state.errorMessage).toEqual(errorMessage.message));
 	});
 
 	test('Test contact submit success',  async () => {
-		const cmp = getCmp();
-		cmp.setState({email: 'test@email.com', message: 'test message'});
-		cmp.find('.submit-btn').simulate('click');
-		await new Promise(resolve => {
-			setTimeout(() => {
-				resolve();
-			}, 300);
-		});
+		let cmp;
+		const {container:root} = render( <Contact ref={x => cmp = x }/> );
 
-		expect(cmp.state().error).toEqual(false);
+		cmp.setState({email: 'test@email.com', message: 'test message'});
+
+		await wait();
+
+		fireEvent.click(root.querySelector('.submit-btn'));
+
+		await waitFor(() =>
+			expect(cmp.state.error).toEqual(false));
 	});
 });
