@@ -36,15 +36,7 @@
     "@nti/web-routing": "NextThought/nti.web.routing"
   },
   "devDependencies": {
-    "@nti/cmp-scripts": "^2.0.0",
-    "@nti/lib-commons": "NextThought/nti.lib.commons",
-    "@nti/style-common": "NextThought/nti.style.common",
-    "@testing-library/react": "^11.2.1"
-  },
-  "peerDependencies": {
-    "classnames": "*",
-    "react": "*",
-    "react-dom": "*",
-    "prop-types": "*"
+    "@nti/cmp-scripts": "^2.31.8",
+    "@nti/lib-commons": "NextThought/nti.lib.commons"
   }
 }
