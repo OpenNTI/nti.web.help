@@ -1,2 +1,2 @@
 export { default } from './View';
-export Contact from './contact';
+export { default as Contact } from './contact';
