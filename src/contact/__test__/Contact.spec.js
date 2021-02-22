@@ -8,9 +8,9 @@ import Contact from '../View';
 const mockService = () => ({
 	getAppUser: () => {
 		return Promise.resolve({
-			Links: [{rel: 'feedback'}]
+			Links: [{ rel: 'feedback' }],
 		});
-	}
+	},
 });
 
 const onBefore = () => {
@@ -22,65 +22,66 @@ const onBefore = () => {
 
 const onAfter = () => {
 	//unmock getService()
-	const {$AppConfig} = global;
+	const { $AppConfig } = global;
 	delete $AppConfig.nodeInterface;
 	delete $AppConfig.nodeService;
 };
 
 const errorMessage = {
-	message :{
+	message: {
 		title: 'Message: ',
-		desc: ' Message cannot be empty.'
+		desc: ' Message cannot be empty.',
 	},
-	email :{
+	email: {
 		title: 'Email:',
-		desc: ' Invalid email address.'
-	}
+		desc: ' Invalid email address.',
+	},
 };
 
 describe('Contact', () => {
 	beforeEach(onBefore);
 	afterEach(onAfter);
 
-	test('Test contact with empty email',  async () => {
+	test('Test contact with empty email', async () => {
 		let cmp;
-		const {container:root} = render( <Contact ref={x => cmp = x }/> );
+		const { container: root } = render(<Contact ref={x => (cmp = x)} />);
 
-		cmp.setState({email: '', message: ''});
+		cmp.setState({ email: '', message: '' });
 
 		await wait();
 
 		fireEvent.click(root.querySelector('.submit-btn'));
 
 		await waitFor(() =>
-			expect(cmp.state.errorMessage).toEqual(errorMessage.email));
+			expect(cmp.state.errorMessage).toEqual(errorMessage.email)
+		);
 	});
 
-	test('Test contact with empty message',  async () => {
+	test('Test contact with empty message', async () => {
 		let cmp;
-		const {container:root} = render( <Contact ref={x => cmp = x }/> );
+		const { container: root } = render(<Contact ref={x => (cmp = x)} />);
 
-		cmp.setState({email: 'test@email.com', message: ''});
+		cmp.setState({ email: 'test@email.com', message: '' });
 
 		await wait();
 
 		fireEvent.click(root.querySelector('.submit-btn'));
 
 		await waitFor(() =>
-			expect(cmp.state.errorMessage).toEqual(errorMessage.message));
+			expect(cmp.state.errorMessage).toEqual(errorMessage.message)
+		);
 	});
 
-	test('Test contact submit success',  async () => {
+	test('Test contact submit success', async () => {
 		let cmp;
-		const {container:root} = render( <Contact ref={x => cmp = x }/> );
+		const { container: root } = render(<Contact ref={x => (cmp = x)} />);
 
-		cmp.setState({email: 'test@email.com', message: 'test message'});
+		cmp.setState({ email: 'test@email.com', message: 'test message' });
 
 		await wait();
 
 		fireEvent.click(root.querySelector('.submit-btn'));
 
-		await waitFor(() =>
-			expect(cmp.state.error).toEqual(false));
+		await waitFor(() => expect(cmp.state.error).toEqual(false));
 	});
 });
