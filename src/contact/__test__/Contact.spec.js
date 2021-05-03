@@ -3,6 +3,10 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
 import { wait } from '@nti/lib-commons';
+import {
+	setupTestClient,
+	tearDownTestClient,
+} from '@nti/web-client/test-utils';
 
 import Contact from '../View';
 
@@ -15,17 +19,11 @@ const mockService = () => ({
 });
 
 const onBefore = () => {
-	global.$AppConfig = {
-		...(global.$AppConfig || {}),
-		nodeService: mockService(),
-	};
+	setupTestClient(mockService());
 };
 
 const onAfter = () => {
-	//unmock getService()
-	const { $AppConfig } = global;
-	delete $AppConfig.nodeInterface;
-	delete $AppConfig.nodeService;
+	tearDownTestClient();
 };
 
 const errorMessage = {
