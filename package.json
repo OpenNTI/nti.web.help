@@ -1,6 +1,6 @@
 {
   "name": "@nti/web-help",
-  "version": "0.12.0",
+  "version": "0.13.0-alpha",
   "description": "Help Components",
   "main": "src/index.js",
   "module": "src/index.js",
